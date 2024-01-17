@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Главная страница</title>
+</head>
+<body>
+<h3>Первое приложение с использованием SpringSecurity</h3>
+<br>
+<br>
+<!--<a href="/logout">Выйти из ЛК</a> из-за csrf-токена ссылка logout не будет работать-->
+<form method="post" th:action="@{/logout}">
+  <button type="submit">Выйти из ЛК</button>
+</form>
+</body>
+</html>

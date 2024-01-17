@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление пакета</title>
+</head>
+<body>
+<h3>Добавление пакета:</h3>
+<form th:method="POST" th:action="@{/admin/package/add}" th:object="${packages}">
+    <label for="name">Наименование пакета:</label>
+    <input type="text" id="name" th:field="*{name}"><br><br>
+    <label for="description">Описание пакета:</label>
+    <input type="text" id="description" th:field="*{description}"><br><br>
+    <label for="price">Цена пакета:</label>
+    <input type="text" id="price" th:field="*{price}"><br><br>
+    <label for="pointOne">Опция 1:</label>
+    <input type="text" id="pointOne" th:field="*{pointOne}"><br><br>
+    <label for="pointTwo">Опция 2:</label>
+    <input type="text" id="pointTwo" th:field="*{pointTwo}"><br><br>
+    <label for="pointThree">Опция 3:</label>
+    <input type="text" id="pointThree" th:field="*{pointThree}"><br><br>
+    <label for="pointFour">Опция 4:</label>
+    <input type="text" id="pointFour" th:field="*{pointFour}"><br><br>
+    <label for="pointFive">Опция 5:</label>
+    <input type="text" id="pointFive" th:field="*{pointFive}"><br><br>
+    <input type="submit" value="Добавить">
+</form>
+</body>
+</html>

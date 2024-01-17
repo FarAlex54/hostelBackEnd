@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Администратор</title>
+</head>
+<body>
+<h3>Кабинет администратора</h3>
+<a href="/logout"></a>
+<form method="post" th:action="@{/logout}">
+    <button type="submit">Выйти из ЛК</button>
+</form>
+<hr>
+<h4>Зарегестрированные пользователи:</h4>
+<div th:each="user: ${person}">
+    <span th:text="${user.getId()}+'    '"></span>
+    <span th:text="${user.getName()}+'    '"></span>
+    <span th:text="${user.getLogin()}+'    '"></span>
+    <span th:text="${user.getPhone()}+'    '"></span>
+    <span th:text="${user.getEmail()}+'    '"></span>
+    <span th:text="${user.getRole()}+'    '"></span>
+    <a th:href="@{/admin/person/delete/{id}(id=${user.getId()})}">Удалить</a>
+</div>
+<hr>
+<br><br>
+<h4>Список статей:</h4>
+<div th:each="article: ${teaching}">
+    <span th:text="${article.getHead()}+'         '"></span>
+    <span th:text="${article.getDescription()}+'         '"></span>
+    <a th:href="@{/admin/teaching/edit/{id}(id=${article.getId()})}">Редактировать</a>
+    <a th:href="@{/admin/teaching/delete/{id}(id=${article.getId()})}">Удалить</a>
+    <br><br>
+</div>
+<a href="admin/teaching/add">добавить статью</a>
+<hr><br>
+<h4>Список пакетов:</h4>
+<div th:each="package: ${packages}">
+    <span th:text="${package.getId()}+'    '"></span>
+    <span th:text="${package.getName()}+'   '"></span>
+    <span th:text="${package.getPrice()}+'   '"></span>
+    <span th:text="${package.getDescription()}+'   '"></span>
+    <span th:text="${package.getPointOne()}+'   '"></span>
+    <span th:text="${package.getPointTwo()}+'   '"></span>
+    <span th:text="${package.getPointThree()}+'   '"></span>
+    <span th:text="${package.getPointFour()}+'   '"></span>
+    <span th:text="${package.getPointFive()}+'   '"></span>
+    <a th:href="@{/admin/package/edit/{id}(id=${package.getId()})}">Редактировать</a>
+    <a th:href="@{/admin/package/delete/{id}(id=${package.getId()})}">Удалить</a>
+    <br><br>
+</div>
+<a href="admin/package/add">добавить пакет</a>
+<hr><br>
+</body>
+</html>

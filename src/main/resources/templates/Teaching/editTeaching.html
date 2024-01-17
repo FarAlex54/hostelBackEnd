@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Редактирование статьи</title>
+</head>
+<body>
+<h3>Редактирование статьи</h3>
+<form th:method="POST" th:action="@{/admin/teaching/edit/{id}(id=${teaching.getId()})}" th:object="${teaching}">
+  <label for="header"></label>
+  <input type="text" th:field="*{head}" id="header"><br><br>
+  <label for="description"></label>
+  <textarea th:field="*{description}" id="description"></textarea>
+  <input type="submit" value="Сохранить">
+</form>
+</body>
+</html>
