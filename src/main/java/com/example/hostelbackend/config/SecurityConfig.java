@@ -33,7 +33,7 @@ public class SecurityConfig{
                 //.csrf((csrf) -> csrf.disable()) //отключение защиты от межсайтовой подделки запросов ВАЖНО!!!!! - для продакшена строка должна закоментирована
                 .authorizeHttpRequests((authz) -> authz
                         .requestMatchers("/admin").hasRole("ADMIN") //админка доступна только роли ROLE_ADMIN
-                        .requestMatchers("/authentication","/error","/registration","/static/**","/css/**","/Teaching/**","/Packages/**").permitAll() //доступные страницы всем смертным
+                        .requestMatchers("/authentication","/error","/registration","/static/**","/css/**","/Packages/**").permitAll() //доступные страницы всем смертным
                         .anyRequest().hasAnyRole("USER","ADMIN")) //остальные страницы которые появятся в проекте будут доступны этим ролям
                 //но нужно будет переделать и поставить permitALL()
                 //.anyRequest().authenticated()) //для всех остальных страниц необходимо вызывать метод authenticated() который открывает форму аутентификации

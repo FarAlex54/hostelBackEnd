@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление отзыва</title>
+</head>
+<body>
+<h3>Добавление отзыва:</h3>
+<form th:method="POST" th:action="@{/admin/feedback/add}" th:object="${feedbacks}">
+    <label for="date_in">Дата:</label>
+    <input type="text" id="date_in" th:field="*{dateIncome}"><br><br>
+    <label for="description">Описание:</label>
+    <input type="text" id="description" th:field="*{description}"><br><br>
+    <label for="owner">Владелец:</label>
+    <input type="text" id="owner" th:field="*{owner}"><br><br>
+    <label for="aproveFeed">активировать:</label>
+    <input type="text" id="aproveFeed" th:field="*{aproove}"><br><br>
+    <label for="pointTwo">Количество звезд:</label>
+    <input type="text" id="pointTwo" th:field="*{stars}"><br><br>
+    <input type="submit" value="Добавить">
+</form>
+</body>
+</html>

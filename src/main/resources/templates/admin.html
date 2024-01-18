@@ -23,15 +23,19 @@
 </div>
 <hr>
 <br><br>
-<h4>Список статей:</h4>
-<div th:each="article: ${teaching}">
-    <span th:text="${article.getHead()}+'         '"></span>
-    <span th:text="${article.getDescription()}+'         '"></span>
-    <a th:href="@{/admin/teaching/edit/{id}(id=${article.getId()})}">Редактировать</a>
-    <a th:href="@{/admin/teaching/delete/{id}(id=${article.getId()})}">Удалить</a>
+<h4>Список Отзывов:</h4>
+<div th:each="feedback: ${feedbacks}">
+    <span th:text="${feedback.getId()}+'         '"></span>
+    <span th:text="${feedback.getDescription()}+'         '"></span>
+    <span th:text="${feedback.getAproove()}+'         '"></span>
+    <span th:text="${feedback.getDateIncome()}+'         '"></span>
+    <span th:text="${feedback.getOwner()}+'         '"></span>
+    <span th:text="${feedback.getStars()}+'         '"></span>
+    <a th:href="@{/admin/feedback/edit/{id}(id=${feedback.getId()})}">Активировать</a>
+    <a th:href="@{/admin/feedback/delete/{id}(id=${feedback.getId()})}">Удалить</a>
     <br><br>
 </div>
-<a href="admin/teaching/add">добавить статью</a>
+<a href="admin/feedback/add">добавить отзыв</a>
 <hr><br>
 <h4>Список пакетов:</h4>
 <div th:each="package: ${packages}">
@@ -49,6 +53,19 @@
     <br><br>
 </div>
 <a href="admin/package/add">добавить пакет</a>
+<hr><br>
+<h4>Список Номеров:</h4>
+<div th:each="room: ${rooms}">
+    <span th:text="${room.getId()}+'    '"></span>
+    <span th:text="${room.getCategory()}+'   '"></span>
+    <span th:text="${room.getPrice()}+'   '"></span>
+    <span th:text="${room.getBed()}+'   '"></span>
+    <span th:text="${room.getDescription()}+'   '"></span>
+    <a th:href="@{/admin/room/edit/{id}(id=${room.getId()})}">Редактировать</a>
+    <a th:href="@{/admin/room/delete/{id}(id=${room.getId()})}">Удалить</a>
+    <br><br>
+</div>
+<a href="admin/room/add">добавить номер</a>
 <hr><br>
 </body>
 </html>

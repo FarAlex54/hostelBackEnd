@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование номера:</title>
+</head>
+<body>
+<h3>Редактирование номера:</h3>
+<form th:method="POST" th:action="@{/admin/room/edit/{id}(id=${rooms.getId()})}" th:object="${rooms}">
+    <label for="name">Категория номера:</label>
+    <input type="text" id="name" th:field="*{category}"><br><br>
+    <label for="description">Описание номера:</label>
+    <input type="text" id="description" th:field="*{description}"><br><br>
+    <label for="price">Цена номера:</label>
+    <input type="text" id="price" th:field="*{price}"><br><br>
+    <label for="bed">Количество спальных мест:</label>
+    <input type="text" id="bed" th:field="*{bed}"><br><br>
+    <input type="submit" value="Сохранить">
+</form>
+</body>
+</html>

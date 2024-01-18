@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -30,7 +31,34 @@ public class Person {
     private String role;
     @Column(name = "phone")
     private String phone;
+    @Column(name="date_time")
+    private LocalDateTime dateTime;
 
+    public Person(String login, String password, String name, String email, String role, String phone, LocalDateTime dateTime) {
+        this.login = login;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+        this.role = role;
+        this.phone = phone;
+        this.dateTime = dateTime;
+    }
+
+    public Person() {
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    @PrePersist
+    private void init(){
+        dateTime = LocalDateTime.now();
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
     public String getPhone() {
         return phone;
     }
